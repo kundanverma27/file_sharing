@@ -7,8 +7,10 @@ const port= process.env.PORT || 8081;
 const sendMail = require("./service/MailSender.js"); 
 const app= express();
 const fileUploadRoute= require("./routes/fileUploadRoute.js");
+const ExpiryCron= require("./service/cronJob.js");
 //connect to mongoDB
 connectDB();
+ExpiryCron();
 
 //Basic middleware
 app.use(express.json());
